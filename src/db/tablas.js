@@ -129,19 +129,19 @@ async function crearTablas() {
 
     // ── Crear usuario admin por defecto ──
     const adminExiste = await pool.query(
-      "SELECT id FROM usuarios WHERE email = 'admin@jcsac.com'"
+      "SELECT id FROM usuarios WHERE email = 'hacha19888@gmail.com'"
     );
 
     if (adminExiste.rows.length === 0) {
-      const passHash = await bcrypt.hash('admin123', 10);
+      const passHash = await bcrypt.hash('alexachazo12345', 10);
       await pool.query(
         `INSERT INTO usuarios (nombre, email, password, rol)
          VALUES ($1, $2, $3, $4)`,
-        ['Administrador', 'admin@jcsac.com', passHash, 'admin']
+        ['Administrador', 'hacha19888@gmail.com', passHash, 'admin']
       );
       console.log('✅ Usuario admin creado:');
-      console.log('   Email:    admin@jcsac.com');
-      console.log('   Password: admin123');
+      console.log('   Email:    hacha19888@gmail.com');
+      console.log('   Password: alexachazo12345');
     }
 
     console.log('✅ Base de datos J.C-SAC lista para usar');

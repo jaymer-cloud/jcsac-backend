@@ -17,11 +17,17 @@ function generarComprobantePDF(venta, res) {
   let   y     = 20;
 
   doc.fontSize(11).fillColor(verde).font('Helvetica-Bold')
-     .text('J.C-SAC', 20, y, { align: 'center', width: ancho });
+     .text('Celifarma', 20, y, { align: 'center', width: ancho });
   y += 14;
 
   doc.fontSize(7).fillColor(gris).font('Helvetica')
-     .text('Sistema de Inventario y Ventas', 20, y, { align: 'center', width: ancho });
+     .text('RUC: 10479593677', 20, y, { align: 'center', width: ancho });
+  y += 10;
+
+  doc.text('Av. Mariscal Castilla N° 5013 - Huanta', 20, y, { align: 'center', width: ancho });
+  y += 10;
+
+  doc.text('Tel: 914775818', 20, y, { align: 'center', width: ancho });
   y += 14;
 
   doc.moveTo(20, y).lineTo(206, y).dash(3, { space: 3 }).stroke(gris);
