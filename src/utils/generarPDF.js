@@ -44,9 +44,12 @@ function generarComprobantePDF(venta, res) {
   doc.moveTo(20, y).lineTo(206, y).dash(3, { space: 3 }).stroke(gris);
   y += 10;
 
-  const fecha = new Date(venta.fecha).toLocaleString('es-PE', {
+  const fechaUTC  = new Date(venta.fecha);
+  const fechaPeru = new Date(fechaUTC.getTime() - (5 * 60 * 60 * 1000));
+  const fecha     = fechaPeru.toLocaleString('es-PE', {
     day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit'
+    hour: '2-digit', minute: '2-digit',
+    hour12: true
   });
 
   doc.fontSize(7).fillColor(negro).font('Helvetica');
